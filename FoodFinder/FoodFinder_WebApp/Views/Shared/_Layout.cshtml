@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using System;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FoodFinder</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Layout.css" />
+</head>
+<body>
+    <header>
+             <nav style="float:left" class="navbar-nav navbar-expand-sm navbar-toggleable-sm ml-auto mb-3 w3-right ">
+                <div class="container">
+                    <!-- <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FoodFinder</a> -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" style="float:right">
+                        <!--<ul class="navbar-nav flex-grow-1">-->
+                        <ul class="navbar-nav ml-auto" style="float:right">
+                            <ul class="nav nav-pills fixed-top flex-grow-1 align-content-end " role="tablist">
+                                <li class="nav-item mr-auto LogoFood ">
+                                    <img class="logo" src="~/css/cssImages/FoodFinderlogo.jpg" width="25" height="25" style="background:transparent" />
+                                    <a class="nav-link FoodFinder" asp-area="" asp-controller="Home" asp-action="Index">FoodFinder</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark font-weight-bold" asp-controller="Home" asp-action="PesquisarComFiltragemPorTipoEntidade" asp-route-tipoEntidade="restaurantes">Restaurantes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark font-weight-bold" asp-controller="Home" asp-action="PesquisarComFiltragemPorTipoEntidade" asp-route-tipoEntidade="pratos">Pratos</a>
+                                </li>
+
+                                @if (Context.Session.GetString("user") == null)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark font-weight-bold" asp-area="" asp-controller="Utilizador" asp-action="Login">Login</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark font-weight-bold" asp-area="" asp-controller="Utilizador" asp-action="Logout">Logout</a>
+                                    </li>
+
+                                    @if (string.Compare(Context.Session.GetString("tipo"), "cliente") == 0)
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="color:green" asp-controller="Cliente" asp-action="AreaCliente">Área Cliente</a>
+                                        </li>
+                                    }
+                                    else if (string.Compare(Context.Session.GetString("tipo"), "restaurante") == 0)
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="color:green" asp-controller="Restaurante" asp-action="AreaRestaurante">Área Restaurante</a>
+                                        </li>
+                                    }
+                                    else if (string.Compare(Context.Session.GetString("tipo"), "administrador") == 0)
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="color:green" asp-controller="Administrador" asp-action="AreaAdministrador">Área Administrador</a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted font-weight-bold">
+        <div class="container">
+            <p > Developed by: David Ferreira | André Mendes | João Santos | Diogo Mesquita </p>
+           <!-- &copy; 2020 -->
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-ajax/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
