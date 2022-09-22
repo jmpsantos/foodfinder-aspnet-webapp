@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "AreaAdministrador";
+}
+
+<link rel="stylesheet" href="~/css/area_admin.css" />
+
+<h1 class="titulo">Área Administrador</h1>
+
+<h2 class="sub">A sua Conta</h2>
+<a class="link" asp-controller="Utilizador" asp-action="InformacaoPessoalUtilizador" asp-route-id="">Dados Pessoais</a>
+
+<h2 class="sub">Pedidos</h2>
+<a class="link" asp-controller="Utilizador" asp-action="ApresentarRestaurantesPorAceitarRegisto">Gerir Pedidos de Restaurantes</a>
+
+<h2 class="sub">Utilizadores</h2>
+<a class="link" asp-controller="Utilizador" asp-action="ListarUtilizadores">Gerir Utilizadores</a>
+<br/>
+<a class="link" asp-controller="Administrador" asp-action="AdicionarAdministrador" asp-route-id="">Criar Novo Administrador</a>
