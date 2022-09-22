@@ -1,0 +1,360 @@
+﻿body {
+  
+}
+
+                /* ---- Area Restaurante ------ */
+/* -------- Informação Pessoal Restaurante ----------- */
+
+.boxinfo {
+    width: 80%;
+    height: 60px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.editarR {
+
+    position:absolute;
+    right:0px;
+    font-size:large;
+}
+    .editarR a:hover {
+        text-decoration:none;
+        color:limegreen;
+    }
+
+    .imgrest {
+        position:relative;
+        left:450px;
+        border:2px solid black;
+    }
+
+
+/* -------- Editar informação restaurante ------- */
+
+.meio {
+
+    margin-left:80%;
+    padding:20px;
+
+}
+
+.box {
+    
+    width:320%;
+    height:52%;
+   
+    margin:25px auto;
+    margin-bottom: 300px;
+    position:relative;
+
+}
+    .foto{
+        position:absolute;
+        top:15px;
+        right:3%; /*280px*/
+
+    }
+    .image {
+
+        position:absolute;
+        top:0px;
+        right:20%; /*-200*/
+        border-radius:8px;
+    }
+
+    .buttonapa {
+        position:absolute;
+        top:220px;
+        /*left:-180px;*/
+        right:50%;
+        border-color:none;
+
+    }
+    .buttonapa input:hover{
+        background-color:indianred;
+        border-color:lightgray;
+
+    }
+.buttondest {
+    position: absolute;
+    top: 220px;
+    /*right:0px;*/
+    border-color:none;
+}
+
+    .texto {
+        position:absolute;
+        top:0px;
+        left:65px;
+        text-align:center;
+
+    }
+
+    .button2 {
+
+        position:absolute;
+        top:120px;
+        left:7%;
+
+    }
+
+    .uploadimg {
+
+       
+        left:50px;
+        top:45px;
+
+
+    }
+
+.ficheiro {
+     position: absolute;
+     top: 60px;
+        left: 5%; /*200px*/
+        width:25%;
+}
+    
+        /* ------ Fora area restaurante ----- */
+/* ----------1. Apresentar Restaurante ---------- */
+
+.boxsuperior {
+
+    width: 90%;
+    height:260px;
+    margin: 20px auto;
+    position: relative;
+    left:10px;
+    
+    
+}
+
+.estrela {
+    
+    position:absolute;
+    top:37%; /*96px*/
+    left:395px; /*395*/
+}
+
+.nomerest {
+    font-weight:bold;
+    position:absolute;
+    left:41%; /*410px*/
+
+}
+
+.locrest{
+    position:absolute;
+    font-weight:bold;
+    font-size:large;
+    color:limegreen;
+    top:53px;
+    left:410px;
+
+}
+
+.ratingrest {
+    position:absolute;
+    top: 36%; /*94*/
+    left:420px;
+    font-weight:500;
+}
+
+.descrirest {
+    position:absolute;
+    top:52.4%;/*136*/
+    left:405px;
+
+}
+
+.favoritorest {
+    position: absolute;
+    top: 35%; /*90*/
+    left: 506px;
+  
+}
+
+    .favoritorest a {
+        text-decoration: none;
+        background-color:lightyellow;
+        color: black;
+        border-radius: 10px;
+        font-size: 15px;
+        text-align: center;
+        width: 240px;
+        height: 30px;
+        cursor: pointer;
+        border-color: none;
+        padding:5px;
+        
+    }
+    
+    .favoritorest a:hover {
+        text-decoration:solid;
+        background-color:darkseagreen;
+        color:white;
+        font-weight:500;
+        
+}
+
+.imgrestar {
+
+    position:absolute;
+    top:0px;
+    left:50px;
+}
+
+
+.ajusteimagens {
+    position: relative;
+    right: 20px;
+}
+
+        /*------- 1.1 Barra meio --------- */
+
+.btnbarrameio {
+
+    width:33%;
+    background-color:lightgrey;
+    color:black;
+    margin-bottom:30px;
+    margin-top:30px;
+    border:none;
+
+}
+
+    .btnbarrameio:hover {
+        background-color:forestgreen;
+        font-size:17px;
+        font-weight:bold;
+        color:white;
+        border:none;
+    }
+
+    .btnbarrameio:active {
+        background-color: forestgreen;
+    }
+
+    .btnbarrameio:focus {
+        background-color: forestgreen;
+        
+    }
+
+       /* ------- 1.2 Pratos do Dia ------- */
+
+.textoimg {
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
+}
+
+    .textoimg h6 {
+        text-decoration: none;
+        font-weight: 500;
+        color: black;
+    }
+
+    .textoimg h6:hover{
+        text-decoration:none;
+    }
+
+.boximage {
+    width: 33%;
+    height: 33%;
+    margin: 25px auto;
+    position: relative;
+    border:2px solid black;
+}
+    .boximage::content{
+
+        position:absolute;
+        left:10px;
+        bottom:10px;
+    }
+
+
+.column {
+    float: left;
+    width: 30.33%;
+    padding-left:50px;
+}
+ 
+.posiçãoimg {
+
+    position:absolute;
+    left:15px;
+    
+ 
+}
+
+.boxgira {
+
+    width:320px;
+    border:2px solid black;
+    position:relative;
+    padding-right: 30px;
+
+
+}
+
+.grid-container {
+    display: inline-grid;
+    grid-template-rows: 25% 25% 25%; 
+    padding: 2px;
+    text-decoration:none;
+    margin-left:10px;
+    
+}
+
+.grid-container a {
+    text-decoration:none;
+}
+
+    .grid-container a:hover {
+        text-decoration: none;
+        font-weight: 600;
+        color: black;
+        font-size: 19px;
+        transition: .4s ease;
+    }
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+    
+  
+/* --------------- Pesquisar --------------- */
+    /* ------- 1.1 Barra do Meio ------- */
+
+.btnbarrameioP {
+
+    display:inline-block;
+    width: 50%;
+    background-color: lightgrey;
+    color: black;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border: none;
+}
+
+.btnbarrameioP:hover {
+    background-color: forestgreen;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    border: none;
+}
+  
+/* -------- Pratos ------ */
+
+.espaçoimagens {
+
+    margin:20px;
+    padding:20px;
+
+
+}
+

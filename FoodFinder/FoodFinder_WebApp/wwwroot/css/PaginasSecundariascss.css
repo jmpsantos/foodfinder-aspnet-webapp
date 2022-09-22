@@ -1,0 +1,271 @@
+﻿body {
+}
+
+/*------------ CSS menu bar -------*/
+/* ----------- Restaurantes ------- */
+    /*Barra de pesquisa*/
+
+.pesquisar {
+    position: relative;
+    text-align: end;
+    margin-top: 8%;
+    margin-bottom:3%;
+}
+
+.btn3 {
+    position: relative;
+    text-align: center;
+    width: 55%;
+    height:40px;
+    background-color: lightgray;
+    color: black;
+    border:groove;
+    cursor:pointer;
+    border-color:lightslategray;
+}
+
+    .btn3:hover {
+        background-color:darkseagreen;
+        color:white;
+    }
+    .btn3:active {
+        background-color:green;
+    }
+
+.btn-group.special {
+    margin: 3%;
+    display: flex;
+    align-content: center;
+    background-color: lightgrey;
+    color: black;
+}
+
+
+
+
+    /* barra navegaçao intermedia */
+
+    
+   
+    /* Fotografias */
+ .nome {
+     text-align:right;
+
+ }
+
+.imgrestaurante {
+    text-align:center;
+    display:block;
+
+    
+}
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-left: 20%;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+    /* Caixa lado esquerdo*/
+ 
+
+.CaixaEsq {
+    width: 40%;
+    height: 100px;
+    margin: 5px auto;
+    position: relative;
+    right: 330px;
+    bottom: 60px;
+    border: 3px solid gray;
+    background-color: whitesmoke;
+}
+
+.TipoServiço {
+    position: absolute;
+    font-weight: 700;
+    left: 38px;
+    top: 8%;
+    width: 200px;
+}
+
+.ServTexto {
+
+    position:relative;
+    top:10%;
+    left:20%;
+
+}
+
+.btnPesq {
+    position: absolute;
+    color: white;
+    background-color: #78BC71;
+    top: 50%;
+    left: 60%;
+    border: none;
+}
+
+    .btnPesq:hover {
+        font-weight: 600;
+        background-color: green;
+        border: none;
+    }
+/*
+.CaixaEsq {
+    width: 25%;
+    height: 200px;
+    margin: 5px auto;
+    position: relative;
+    right:370px;
+    bottom:50px;
+    border:3px solid gray;
+    background-color:whitesmoke;
+}
+
+.TipoServiço {
+
+    position:absolute;
+    font-weight:700;
+    left:38px;
+    top:25px;
+    width:200px;
+ 
+}
+
+.btnPesq {
+    position: absolute;
+    color: white;
+    background-color: #78BC71;
+    top: 110px;
+    left: 80px;
+    border:none;
+}
+    .btnPesq:hover {
+        font-weight:600;
+        background-color:green;
+        border:none;
+    }
+*/
+ #textimage {
+
+     float:left;
+
+ }
+
+
+
+/* ----------- Login -------------- */
+
+.Login {
+
+    position:relative;
+    top:30%;
+    left:35%;
+    margin-top:5%;
+    
+}
+
+.registo-login {
+    color: green;
+    background-color: silver;
+    border-radius: 15px;
+    width: 350px;
+    height: 40px;
+    padding:10px;
+}
+
+    .registo-login a:hover {
+        background-color: lightgrey;
+        text-decoration: none;
+        border-color:none;
+    }
+    .registo-login a:visited, a:link, a:active {
+        text-decoration: none;
+        border-color:none;
+    }
+
+.btn2 {
+    text-align:center;
+    background-color:green;
+    color:white; 
+    border-radius:15px;
+    width: 250px;
+    height: 40px;
+    cursor:pointer;
+    border-color:none;
+}
+
+    .btn2:hover{
+         background-color:darkseagreen;
+         border-color:none;
+    }
+    .btn2:active {
+        background-color:darkseagreen;
+        border-color:none;
+    }
+
+.FFinicialLogin {
+    margin-top: 120px;
+    left: 42%;
+    position: relative;
+}
+
+.FFinicial:before {
+    background-image: url('cssImages/FoodFinderlogo.jpg');
+    background-repeat: no-repeat;
+    padding-left: 30px; 
+    display: block;
+} /*ver melhor */
+
+/* ----------- Registo -------------- */
+
+.Registo {
+    position: relative;
+    top: 30%;
+    left: 35%;
+    margin-top: 5%;
+}
+
+.FFinicial {
+    margin-top:50px;
+    left: 42%;
+    position:relative;
+}
+
+
+
+/**/
+.btnbarrameio1 {
+    
+    background-color: lightgrey;
+    color: black;
+}
+
+    .btnbarrameio1:hover {
+        background-color: forestgreen;
+        font-size: 15px;
+        font-weight: 500;
+        color: white;
+    }
+
+    .btnbarrameio1:active {
+        background-color: forestgreen;
+    }
+
+    .btnbarrameio1:focus {
+        background-color: forestgreen;
+    }
+
+/* ----------- Area cliente -------------- */
+
+.Área Cliente {
+    color:chartreuse;
+}
+

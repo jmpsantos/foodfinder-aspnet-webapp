@@ -1,0 +1,29 @@
+﻿.titulo {
+    color: #78bc71;
+    margin-top: 5%;
+}
+
+.sub {
+    margin-top: 4%;
+    font-size: 125%;
+}
+
+.link {
+    margin-left: 3%;
+    color: dimgray;
+}
+
+    link:hover {
+        background-color: darkseagreen;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        padding: 9px;
+        font-weight: 600;
+    }
+
+
+.e {
+    margin-top: -0,35%;
+}
+

@@ -1,0 +1,97 @@
+﻿.NomePrato {
+    color: black;
+    font-size: 180%;
+    position:absolute;
+    top:0%;
+    left: 37%;
+}
+
+.NomeRestaurante{
+    text-align:center;
+    color:#78bc71;
+    position:absolute;
+    top:10%;
+    left:37%;
+    font-size:145%;     
+
+}
+
+.Descricao{
+    color:dimgray;
+    font-size:95%;
+    position:absolute;
+    top:60%;
+}
+
+#ImagemPrato {
+    position:absolute;
+    top:0%;
+    left:0%;
+}
+
+.boxPratos{
+    top:20px;
+    left:-120px;
+    height:440px;
+    width:70%;
+    border:2px solid black;
+    margin:15px auto;
+    position:relative;
+    border:hidden;
+}
+
+.Preco {
+    position: absolute;
+    top: 30%;
+    left: 37%;
+    color: dimgray;
+    font-size: 130%;
+}
+
+.button_adicionar {
+    position: absolute;
+    top: 19%;
+    left: 37%;
+}
+
+    .button_adicionar a {
+        text-decoration: none;
+        background-color: lightyellow;
+        color: black;
+        border-radius: 10px;
+        font-size: 15px;
+        text-align: center;
+        width: 240px;
+        height: 30px;
+        cursor: pointer;
+        border-color: none;
+        padding: 5px;
+    }
+
+
+.button_adicionar a:hover {
+    text-decoration: solid;
+    background-color: darkseagreen;
+    color: white;
+    font-weight: 500;
+}
+
+
+.cifrao {
+    color: #78bc71;
+    font-size: 100%;
+}
+
+.button_favorito{
+    height:auto;
+    width:auto;
+    position:absolute;
+    top:20%;
+    left:36%;
+    background-color:#EDE6D6;
+    border:none;
+}
+    .button_favorito:hover {
+        background-color: #78bc71;
+        color:white;
+    }

@@ -1,0 +1,58 @@
+﻿body {
+}
+
+/*-------- Criar Utilizador ---------*/
+.form-controlad {
+
+    position:absolute;
+    left:70%;
+    width:100%;   
+   
+}
+
+.btnad {
+    position:absolute;
+    left:40%;
+    text-align: center;
+    background-color: green;
+    color: white;
+    border-radius: 15px;
+    width: 200px;
+    height: 35px;
+    cursor: pointer;
+}
+
+    .btnad:hover {
+        background-color:darkseagreen;
+    }
+
+    /* --------  Gerir/Listar Utilizadores --------*/
+  /* --- Barra navegação --- */
+
+.btnadG {
+    position: relative;
+    text-align: center;
+    width: 30%;
+    height: 40px;
+    background-color: lightgray;
+    color: black;
+    border: groove;
+    cursor: pointer;
+    border-color: lightslategray;
+    display:inline-flex;
+    
+}
+
+    .btnadG:hover {
+        background-color: darkseagreen;
+        color: white;
+    }
+
+    .btnadG:active {
+        background-color: green;
+    }
+
+.esticar {
+
+    display:flex;
+}

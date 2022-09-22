@@ -1,0 +1,46 @@
+﻿.titulo {
+    color: #383838;
+    font-size: 165%;
+    margin-top:3%;
+    margin-left:10%;
+}
+
+.sub{
+    font-size:200%;
+}
+
+.btn-crud {
+    background-color: #E6E6E6;
+    border: none;
+    color:#000;
+}
+.btn-usar {
+    background-color: #78BC71;
+    color: white;
+}
+
+.btn-crud:hover{
+    background-color: #78BC71;
+    color:white;
+}
+
+.imagem_prato{
+   height:180px;
+   width:180px;
+}
+
+.container_prato{
+    margin:auto;
+    margin-left:10%;
+    margin-top:5%;
+    width:80%;
+}
+
+.sub2 {
+    font-size: 120%;
+    color: #575757;
+}
+
+.cifrao {
+    color: #78BC71;
+}

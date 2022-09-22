@@ -1,0 +1,29 @@
+﻿.titulo{
+    margin-top=5%;
+    color:#78bc71;
+}
+
+.sub{
+    margin-top:4%;
+    font-size:125%;
+}
+
+.link{
+    margin-top:3%;
+    margin-left:5%;
+    color:dimgray;
+    text-decoration:none;
+}
+
+    link:hover {
+        background-color: darkseagreen;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        padding: 9px;
+        font-weight: 600;
+    }
+
+
+body {
+}

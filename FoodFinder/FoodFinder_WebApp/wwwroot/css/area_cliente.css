@@ -1,0 +1,62 @@
+﻿.titulo {
+    color: darkseagreen;
+    margin-top: 8%;
+}
+
+.sub {
+    margin-top: 3%;
+    font-size: 140%;
+}
+
+.link {
+    margin-top: 1%;
+    margin-left: 4%;
+    color: dimgray;
+    text-decoration: none;
+}
+
+    link:hover {
+        background-color: darkseagreen;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        padding: 9px;
+        font-weight: 600;
+    }
+
+.a3 {
+    margin-top: 1%;
+}
+
+
+/*
+h1 {
+    color: #78bc71;
+    margin-top: 8%;
+}
+
+h2 {
+    margin-top: 3%;
+    font-size: 140%;
+}
+
+
+
+a {
+    margin-top: 1%;
+    margin-left: 3%;
+    color: dimgray;
+}
+
+a:hover{
+    color:deepskyblue;
+}
+
+.a3 {
+    margin-top: 1%;
+}
+
+
+
+body {
+}
