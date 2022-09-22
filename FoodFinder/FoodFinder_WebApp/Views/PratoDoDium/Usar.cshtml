@@ -1,0 +1,42 @@
+﻿@model FoodFinder_WebApp.Models.PratoDoDium
+
+@{
+    ViewData["Title"] = "Usar";
+}
+
+<h1>Usar</h1>
+
+<div>
+    <h4>PratoDoDium</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+    <div>
+        <img src="@Url.Content("/images/pratos/"+ Model.PratoId + ".jpg?" + DateTime.Now.ToString("HHmmsskkk")))" alt="imagem do restaurante" width="500" height="600" />
+    </div>
+    <div>
+        <a asp-action="Usar2" asp-route-id="@(Model.PratoId)">Usar</a>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

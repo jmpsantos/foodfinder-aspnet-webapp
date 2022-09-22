@@ -1,0 +1,30 @@
+﻿@model IEnumerable<FoodFinder_WebApp.Models.PratoDoDium>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/pratos_ativos.css"/>
+
+<h1 class="titulo">Histórico Pratos</h1>
+
+@foreach (var item in Model)
+{
+<div class="container container_prato">
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="imagem_prato img-fluid" src="@Url.Content("/images/pratos/"+ item.PratoId + ".jpg?" + DateTime.Now.ToString("HHmmsskkk")))" alt="imagem do restaurante" style="border-radius:8px"/>
+        </div>
+        <div class="col-sm-9">
+            <h2 class="sub">
+                @Html.DisplayFor(modelItem => item.Nome)
+            </h2>
+            <br />
+          
+            <a asp-action="Usar2" asp-route-id="@(item.PratoId)" class="btn btn-primary btn-crud"> Usar</a>
+        </div>
+    </div>
+
+</div>
+}
+
