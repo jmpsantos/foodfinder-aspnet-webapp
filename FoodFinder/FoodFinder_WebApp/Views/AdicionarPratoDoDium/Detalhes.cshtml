@@ -1,0 +1,59 @@
+﻿
+@model FoodFinder_WebApp.ViewModels.PratoDetalhesViewModel
+
+@{
+    ViewData["Title"] = "Prato";
+}
+
+<link rel="stylesheet" href="~/css/detalhes_prato.css" />
+
+
+<br /><br />
+<div class="boxPratos">
+
+    <div class="NomePrato">
+        @Html.DisplayFor(model => model.PratosDoDia[0].Nome)
+    </div>
+
+    <br />
+    <div class="NomeRestaurante">
+        @Html.DisplayFor(model => model.UtilizadoresRestaurantes[0].Nome)
+    </div>
+
+    <div id="ImagemPrato">
+        <img src="@Url.Content(Model.ImagensPath[0])" alt="Imagem do Prato" width="250" height="250" style="border-radius:8px"/>
+    </div>
+
+
+    <div class="Preco">
+        <p> <span class="cifrao"> € </span> @Html.DisplayFor(model => model.AdicionarPratoDoDia[0].Preco) </p> 
+    </div>
+    
+
+    <br />
+    <div class="Descricao">
+        @Html.DisplayFor(model => model.PratosDoDia[0].Descricao)
+    </div>
+
+
+
+   <div class="button_adicionar btn">
+    @{
+        if (ViewBag.Prato == false)
+        {
+            
+            @Html.ActionLink("Adicionar aos Favoritos", "AdicionarFavorito", "AdicionarPratoDoDium", new { IdPrato = Model.PratosDoDia[0].PratoId });
+
+        }
+        else if (ViewBag.Prato == true)
+        {
+            @Html.ActionLink("Remover dos Favoritos", "RemoverFavorito", "AdicionarPratoDoDium", new { IdPrato = Model.PratosDoDia[0].PratoId });
+
+        }
+    }
+   </div>
+
+
+</div>
+
+

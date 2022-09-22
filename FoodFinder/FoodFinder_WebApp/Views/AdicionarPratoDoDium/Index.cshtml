@@ -1,0 +1,87 @@
+﻿@model IEnumerable<FoodFinder_WebApp.Models.AdicionarPratoDoDium>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Index";
+    int i = 0;
+}
+
+
+<style>
+    p {
+    }
+
+        p a {
+            float: right;
+            color: limegreen;
+        }
+
+            p a:hover {
+                color: white;
+                background-color: green;
+                border-radius: 4px;
+                padding: 3px;
+                text-decoration: none;
+                font-weight: 500;
+            }
+</style>
+
+<br />
+<br />
+<br />
+<br />
+
+
+<p>
+    @Html.ActionLink("Adicionar", "Create", "PratoDoDium")
+
+</p>
+<br />
+
+<link rel="stylesheet" href="~/css/pratos_ativos.css" />
+
+
+
+<h1 class="titulo">Os seus Pratos</h1>
+@foreach (var item in Model)
+{
+    <div class="container container_prato">
+        <div class="row">
+            <div class="col-sm-3">
+                <img class="imagem_prato img-fluid" src="@Url.Content("/images/pratos/" + item.Prato.PratoId + ".jpg?" + DateTime.Now.ToString("HHmmsskkk"))" alt="imagem do restaurante" />
+            </div>
+            <div class="col-sm-9">
+                <h2 class="sub">
+                    @Html.DisplayFor(modelItem => item.Prato.Nome)
+                </h2>
+                <br />
+                <h3 class="sub2">
+                    <p> <span class="cifrao"> € </span>  @Html.DisplayFor(modelItem => item.Preco) </p>
+
+                </h3>
+                <br />
+                <span class="caixa_button">
+
+                    @{
+                        if (ViewBag.Destacados[i] == false)
+                        {
+                            <a href='@Url.Action("DestacarPrato","AdicionarPratoDoDium", new { id=item.Prato.PratoId, data = item.DataPrato.ToString()  })' class="btn btn-primary btn-crud"> Destacar Prato</a>
+                        }
+                        else
+                        {
+                            <a href='@Url.Action("RemoverDestacarPrato","AdicionarPratoDoDium", new { id=item.Prato.PratoId, data = item.DataPrato.ToString()  })' class="btn btn-primary btn-crud"> Remover dos Destaques</a>
+
+                        }
+                        i++;
+                    }
+
+                    <a href='@Url.Action("Delete","AdicionarPratoDoDium", new { id=item.Prato.PratoId, data = item.DataPrato.ToString()  })' class="btn btn-primary btn-crud"> Eliminar</a>
+
+                </span>
+            </div>
+        </div>
+
+    </div>
+}
+
+

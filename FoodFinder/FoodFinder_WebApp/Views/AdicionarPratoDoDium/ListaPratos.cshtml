@@ -1,0 +1,61 @@
+﻿@model FoodFinder_WebApp.ViewModels.PratoDetalhesViewModel;
+
+
+<link rel="stylesheet" href="~/css/pratos_ativos.css" />
+
+@{
+
+    ViewData["Title"] = "ListaPratos";
+    int j = 0;
+}
+
+
+<link rel="stylesheet" href="~/css/Layout.css" />
+<link rel="stylesheet" href="~/css/Restaurante.css"/>
+<link rel="stylesheet" href="~/css/SlideShow.css" />
+
+
+@if (Model != null)
+{
+    @for (int i = 0; i < Model.PratosDoDia.Count(); i++)
+    {
+        <div class="grid-container">
+            <a asp-action="Detalhes" asp-controller="AdicionarPratoDoDium" asp-route-pratoId="@Model.PratosDoDia[i].PratoId">
+                
+                    <div class="grid-item">
+                        <img class="imgespaço" src="@Url.Content(Model.ImagensPath[i])" alt="imagem do prato" width="200" height="200" style="border-radius:8px" />
+                        
+                        <h5 style="font-weight:bold;text-decoration:none;color:black">@Model.PratosDoDia[i].Nome</h5>
+
+                        @if (!((Model.AdicionarPratoDoDia[i].DataPrato.Date == DateTime.Today.Date) &&
+         (Model.AdicionarPratoDoDia[i].Ativado == true)))
+                        {
+                            <p style="color:red;text-decoration:none">Indisponível</p>
+                        }
+                        else
+                        {
+                            <p style="color:green;text-decoration:none">Disponível</p>
+                        }
+
+                        @if (Model.UtilizadoresRestaurantes.Count() == 1)
+                        {
+                            j = 0;
+                        }
+                        else
+                        {
+                            j = i;
+                        }
+
+                        <a style="text-decoration:none" asp-action="ApresentarRestaurante" asp-controller="Restaurante" asp-route-id="@Model.UtilizadoresRestaurantes[i].Username">
+                            <p style="font-weight:bold;text-decoration:none;color:black">@Model.UtilizadoresRestaurantes[j].Nome</p>
+                        </a>
+                
+               </div>
+            </a>
+            </div>
+            }
+            }
+            else
+            {
+            <p>A lista encontra-se vazia.</p>
+            }

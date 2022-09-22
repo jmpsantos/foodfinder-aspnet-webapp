@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FoodFinder_WebApp.Models.AdicionarPratoDoDium>
+
+@{
+    ViewData["Title"] = "HistoricoPratos";
+}
+
+<h1>HistoricoPratos</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPrato)
+            </th>
+            <th>
+                Fotografia
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prato.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPrato)
+            </td>
+            <td>
+                <img src="@Url.Content("/images/pratos/"+ item.Prato.PratoId + ".jpg?" + DateTime.Now.ToString("HHmmsskkk")))" alt="imagem do restaurante" width="500" height="600" />
+            </td>
+            <td>
+                @Html.ActionLink("Usar", "UsarPratoHistorico", new { item.PratoId })
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
