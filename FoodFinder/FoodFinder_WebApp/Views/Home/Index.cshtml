@@ -1,0 +1,69 @@
+﻿@model FoodFinder_WebApp.ViewModels.HomeViewModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="~/css/Layout.css" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+
+<!--<div class="jumbotron bg-cover  jumbotron-fluid"> -->
+
+
+    <div class="bg-cover" style="border-radius:8px">
+.<!--div class="jumbotron jumbotron-fluid">-->
+    <div class="container1">
+        <div class="boxtextoinicial">
+
+            <h1 align="center" style="color:white" >Encontre o restaurante e o prato <br /> perfeito para si!</h1>
+            <h5 align="center" style="color:white" >Descubra os melhores restaurantes com os melhores pratos perto de si ou em qualquer <br /> lugar do mundo.</h5>
+
+            <form>
+                <p align="center">
+                    <input type="text" name="textoPesquisa" />
+                    <button type="submit" asp-controller="Home" asp-action="Pesquisar" class="btn btn-primary" style="background-color:#78BC71; border:none" value="Save"><i class="icon-save"></i>Pesquisar</button>
+                </p>
+            </form>
+        </div>
+        <a style="color:white" class="seta">&#10094;</a>
+    </div>
+</div>
+    
+
+<br />
+<br />
+<br /> <br /><br />
+
+<h3 style="text-align:center"><b>Pratos do Dia em Destaque</b></h3>
+<br />
+<partial name="~/Views/AdicionarPratoDoDium/ListaPratos.cshtml" model=Model.PratoDetalhesViewModel />
+<br />
+<br />
+
+
+<h3 style="text-align:center"><b>Onde Comer?</b></h3>
+<br />
+<partial name="~/Views/Restaurante/ListaRestaurante.cshtml" model=Model.RestauranteDetalhesViewModel />
+<br />
+
+<script>
+    $(document).ready(function () {
+
+        $(".seta").click(function () {
+            var n = $(document).height();
+
+            $('html, body').animate({ scrollTop: 800 }, 'slow');
+
+
+        });
+    });
+</script>
+
+
+
+
+
+
+
+

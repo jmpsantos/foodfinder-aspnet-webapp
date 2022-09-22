@@ -1,0 +1,108 @@
+﻿@model FoodFinder_WebApp.ViewModels.HomeViewModel;
+
+
+
+@{
+    ViewData["Title"] = "Pesquisar";
+    string tipoEntidade = null;
+
+    if (ViewData["tipoEntidade"] != null)
+    {
+        tipoEntidade = ViewData["tipoEntidade"].ToString();
+    }
+
+}
+
+<link rel="stylesheet" href="~/css/PaginasSecundariascss.css" />
+
+<link rel="stylesheet" href="~/css/Restaurante.css" />
+
+
+<form asp-controller="Home" asp-action="Pesquisar">
+    <div class="pesquisar">
+        <p>
+            <input type="text" name="textoPesquisa" style="width:65%" placeholder="Procure por Restaurantes, Pratos ..." />
+            <input type="submit" class="btn2 btn-primary" style="background-color:#78BC71; border:none" value="Pesquisar" />
+        </p>
+    </div>
+
+    
+
+
+    <div class="btn-toolbar d-flex">
+        <input type="submit" class="btn btn-primary btnbarrameioP"  asp-action="PesquisarComFiltragemPorTipoEntidade" asp-route-tipoEntidade="restaurantes" value="Restaurantes"  />
+        <input type="submit" class="btn btn-primary btnbarrameioP"  asp-action="PesquisarComFiltragemPorTipoEntidade" asp-route-tipoEntidade="pratos" value="Pratos" />
+    </div>
+</form>
+
+
+
+
+
+<br />
+<br />
+
+<div class="CaixaEsq">
+    <form>
+
+        @if (tipoEntidade != null)
+        {
+            
+            switch (tipoEntidade)
+            {
+            case "prato":
+            <div class="form-group TipoServiço flex-column">
+                <p class="ServTexto">Tipo de Serviço </p>
+                <select class="form-control" name="filtroTipoPrato">
+                    <option value="0"></option>
+                    <option value="Carne">Carne</option>
+                    <option value="Peixe">Peixe</option>
+                    <option value="Vegetariano">Vegetariano</option>
+                </select>
+            </div>
+            <!--<input type="submit" class="btn btn-primary" asp-action="PesquisarComFiltragemDetalhada" value="Pesquisar" />-->
+            break;
+
+
+
+            case "restaurante":
+    <div class="form-group TipoServiço flex-lg-column">
+        <p class="ServTexto">Tipo de Serviço </p>
+        <select class="form-control" name="filtroTipoServico">
+            <option  value="0"> </option>
+            <option value="Local">Local</option>
+            <option value="Take-away">Take-away</option>
+            <option value="Esplanada">Esplanada</option>
+        </select>
+        <!--<input type="submit" class="btn btn-primary" asp-action="PesquisarComFiltragemDetalhada" value="Pesquisar" />-->
+    </div>
+
+    break;
+}
+        }
+
+        <input  type="submit" class="btn btnPesq btn-primary" asp-action="PesquisarComFiltragemDetalhada" value="Pesquisar" />
+    </form>
+    </p>
+
+
+</div>
+
+
+
+@if (Model != null && ViewData["partialView"] != null)
+{
+    @if (ViewData["tipoEntidade"].ToString() == "restaurante")
+    {
+        <partial name="@ViewData["partialView"].ToString()" model=Model.RestauranteDetalhesViewModel />
+    }
+    else if (ViewData["tipoEntidade"].ToString() == "prato")
+    {
+        <partial name="@ViewData["partialView"].ToString()" model=Model.PratoDetalhesViewModel />
+    }
+}
+else
+{
+    <p>Não existem itens na base de dados para a pesquisa.</p>
+}
+
