@@ -1,0 +1,23 @@
+﻿@model FoodFinder_WebApp.Models.ComentarioRestaurante
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="InserirComentario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Rating (0 - 5)
+                <input type="number" name="rating"/>
+            </div>
+            <div class="form-group">
+                Comentario
+                <textarea type="text" name="textoComentario"></textarea>
+            </div>
+            <div>
+                <button type="submit" asp-controller="ComentarioRestaurante" asp-action="InserirComentario" class="btn btn-primary" value="Save">Submeter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
