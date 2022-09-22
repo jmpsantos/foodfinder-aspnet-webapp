@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "MotivoBloqueio";
+}
+
+<h1>Bloquear utilizador @ViewData["utilizadorID"]</h1>
+
+
+<form>
+    <p>
+        <textarea type="text" name="textoMotivo"></textarea>
+        <br />
+        <button type="submit" asp-controller="Bloqueado" asp-action="ConfirmarBloqueio" class="btn btn-primary" value="Save" asp-route-id="@ViewData["utilizadorID"]"><i class="icon-save"></i>Confirmar bloqueio</button>
+        <br />
+        <button type="submit" asp-controller="Home" asp-action="Pesquisar" class="btn btn-primary" value="Save"><i class="icon-save"></i>Cancelar</button>
+    </p>
+</form>

@@ -1,0 +1,34 @@
+﻿@model FoodFinder_WebApp.Models.Bloqueado
+
+
+<style>
+    .linkback {
+        text-decoration: none;
+        color: green;
+        font-weight: 500;
+    }
+        .linkback a {
+            text-decoration: none;
+            color: green;
+            font-weight: 500;
+            
+        }
+
+        .linkback a:hover {
+            font-weight:bold;
+            text-decoration:none;
+            color:green;
+
+        }
+
+</style>
+
+
+
+<br/> <br/>
+<h1>A sua conta encontra-se bloqueada! </h1>
+
+<br/>
+<p><b>Motivo</b>: @Model.Motivo</p>
+
+<a class="linkback" asp-action="Index" asp-controller="Home">Regressar ao menu principal</a>
