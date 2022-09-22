@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "AreaCliente";
+}
+
+<link rel="stylesheet" href="~/css/area_cliente.css"/>
+
+<br /><br /><br />
+<h1 class="titulo">Área Cliente</h1>
+
+<h2 class="sub">A sua Conta</h2>
+<a class="link" asp-controller="Utilizador" asp-action="InformacaoPessoalUtilizador" asp-route-id="">Dados Pessoais</a>
+
+
+
+
+<h2 class="sub">Os seus Favoritos</h2>
+<a class="link" asp-controller="FavoritarPratoDoDium" asp-action="ListaPratosDoDiaFavoritos">Pratos do Dia</a>
+<br />
+<div>
+    <a class="a3 link" asp-controller="FavoritarRestaurante" asp-action="ListaRestaurantesFavoritos">Restaurantes</a>
+</div>
+
