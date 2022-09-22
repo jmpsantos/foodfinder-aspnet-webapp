@@ -1,0 +1,237 @@
+﻿@model FoodFinder_WebApp.Models.Restaurante
+    @using Microsoft.AspNetCore.Http;
+
+    @{
+        ViewData["Title"] = "Edit";
+
+    }
+
+
+
+    <link rel="stylesheet" href="~/css/PaginasSecundariascss.css" />
+    <link rel="stylesheet" href="~/css/Restaurante.css" />
+    <link rel="stylesheet" href="~/css/Admincss.css" />
+
+
+    <br />
+    <br />
+    <h4><br /> <br /> Informações Pessoais <br /> <br /></h4>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="RestauranteId" />
+                <input type="hidden" asp-for="LocalizacaoId" />
+                <input type="hidden" asp-for="Rating" />
+                <div class="form-group">
+                    <label asp-for="ContactoEmail" class="control-label font-weight-bold"></label>
+                    <input asp-for="ContactoEmail" class="form-controlad" />
+                    <span asp-validation-for="ContactoEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContactoTelefone" class="control-label font-weight-bold"></label>
+                    <input asp-for="ContactoTelefone" class="form-controlad" />
+                    <span asp-validation-for="ContactoTelefone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HorarioFuncionamento" class="control-label font-weight-bold"></label>
+                    <input asp-for="HorarioFuncionamento" class="form-controlad" />
+                    <span asp-validation-for="HorarioFuncionamento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DiaDeDescanso" class="control-label font-weight-bold"></label>
+                    <input asp-for="DiaDeDescanso" class="form-controlad" />
+                    <span asp-validation-for="DiaDeDescanso" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TipoDeServico" class="control-label font-weight-bold"></label>
+                    <input asp-for="TipoDeServico" class="form-controlad" />
+                    <span asp-validation-for="TipoDeServico" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Descricao" class="control-label font-weight-bold"></label>
+                    <input asp-for="Descricao" class="form-controlad" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group meio ">
+                    <input type="submit" value="Salvar" class="btn2 btn-primary" />
+                </div>
+
+            </form>
+
+
+            <div class="box">
+                <form class="foto" asp-action="AtualizarImagens">
+
+                    @for (int i = 0; i < ViewBag.fCount; i++)
+                    {
+
+               
+                    <img src="@Url.Content("/images/restaurantes/" + Model.RestauranteId + "_00" +i + ".jpg?"  + DateTime.Now.ToString("HHmmsskkk"))" width="150" height="150" style="border:3px solid black;border-radius:8px" />
+                    <input type="radio" name="Imagens" value="@i" @if (i == 0) { <text> checked</text> } />
+                
+
+
+                }
+
+
+                    <div class="form-group d-inline-flex ">
+                        <div class="buttondest">
+                            <input type="submit" name="Button" class="btn2 btn-primary " value="Destacar" />
+                        </div>
+                        <div class="buttonapa">
+                            <input type="submit" name="Button" class="btn2 btn-primary " value="Apagar" style="background-color:red" />
+                        </div>
+                    </div>
+
+                    <br />
+
+            </form>
+                <form class="uploadimg" asp-action="UploadImagem" enctype="multipart/form-data">
+                    <div class="form-group  ">
+                        <label class="control-label font-weight-bold texto ">Foto do Restaurante </label>
+                        <br /><br />
+                        <input name="fotoRestaurante" type="file" class="form-control ficheiro" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                    
+
+                        <br />
+
+                        <div class="form-group button2">
+                            <input type="submit" value="Guardar Imagem" class="btn2 btn-primary" />
+                        </div>
+
+                    </form>
+
+</div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+
+
+@*@model FoodFinder_WebApp.Models.Restaurante
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Edit";
+
+}
+
+
+<style>
+    p {
+    }
+
+        p a {
+            float: right;
+            color: limegreen;
+        }
+
+            p a:hover {
+                color: white;
+                background-color: green;
+                border-radius: 4px;
+                padding: 3px;
+                text-decoration: none;
+                font-weight: 500;
+            }
+</style>
+
+=======
+<link rel="stylesheet" href="~/css/pratos_ativos.css" />
+
+<h1>Editar</h1>
+
+<h4>Restaurante</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RestauranteId" />
+            <input type="hidden" asp-for="LocalizacaoId" />
+            <input type="hidden" asp-for="Rating" />
+            <div class="form-group">
+                <label asp-for="ContactoEmail" class="control-label"></label>
+                <input asp-for="ContactoEmail" class="form-control" />
+                <span asp-validation-for="ContactoEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactoTelefone" class="control-label"></label>
+                <input asp-for="ContactoTelefone" class="form-control" />
+                <span asp-validation-for="ContactoTelefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HorarioFuncionamento" class="control-label"></label>
+                <input asp-for="HorarioFuncionamento" class="form-control" />
+                <span asp-validation-for="HorarioFuncionamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaDeDescanso" class="control-label"></label>
+                <input asp-for="DiaDeDescanso" class="form-control" />
+                <span asp-validation-for="DiaDeDescanso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoDeServico" class="control-label"></label>
+                <input asp-for="TipoDeServico" class="form-control" />
+                <span asp-validation-for="TipoDeServico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary btn-crud" />
+            </div>
+
+        </form>
+
+        <form asp-action="AtualizarImagens">
+
+            @for (int i = 0; i < ViewBag.fCount; i++)
+            {
+                <img src="@Url.Content("/images/restaurantes/" + Context.Session.GetString("user") + "_00" +i + ".jpg?"  + DateTime.Now.ToString("HHmmsskkk"))" width="500" height="600" />
+                <input type="radio" name="Imagens" value="@i" @if (i == 0) { <text> checked</text> } />
+
+            }
+
+
+            <div class="form-group">
+                <input type="submit" name="Button" a class="btn btn-primary btn-crud" value="Destacar" />
+                <input type="submit" name="Button" class="btn btn-primary btn-crud" value="Apagar" />
+            </div>
+
+        </form>
+        <form asp-action="UploadImagem" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="control-label">Foto do Restaurante</label>
+                <input name="fotoRestaurante" type="file" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar Imagem" class="btn btn-primary btn-crud" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "AreaRestaurante";
+}
+
+<link rel="stylesheet" href="~/css/area_restaurante.css"/>
+
+<br /><br />
+<h1 class="titulo">Área Restaurante</h1>
+
+<h2 class="sub">A sua Conta</h2>
+<a class="link" asp-controller="Restaurante" asp-action="InformacaoPessoalRestaurante">Dados Pessoais</a>
+
+<h2 class="sub">Os seus Pratos</h2>
+<a class="link" asp-controller="AdicionarPratoDoDium" asp-action="Index" asp-route-id="">Pratos do Dia Ativos</a>
+<br />
+<a class="link" asp-controller="PratoDoDium" asp-action="Index" asp-route-id="">Histórico de Pratos</a>
+
+<h2 class="sub">Os Comentarios no seu Restaurante</h2>
+<a class="link" asp-controller="ComentarioRestaurante" asp-action="ListaComentariosNoRestaurante" asp-route-id="">Comentários de utilizadores</a>
+
+

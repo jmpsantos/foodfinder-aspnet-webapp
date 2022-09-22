@@ -1,0 +1,152 @@
+﻿@model FoodFinder_WebApp.ViewModels.HomeViewModel;
+
+
+@{
+    ViewData["Title"] = "ListaRestaurantesFavoritos";
+}
+
+
+<link rel="stylesheet" href="~/css/Restaurante.css" />
+<link rel="stylesheet" href="~/css/Layout.css" />
+<link rel="stylesheet" href="~/css/SlideShow.css" />
+
+<br /><br />
+
+<div class="boxsuperior">
+    <img class="estrela" src="~/css/cssImages/estrela.png" width="20" height="20"/>
+    <h1 class="nomerest">@Model.RestauranteDetalhesViewModel.UtilizadoresRestaurantes[0].Nome</h1>
+    <p class="locrest">@Model.RestauranteDetalhesViewModel.Localizacoes[0].Localidade</p>
+    <p class="ratingrest">@Model.RestauranteDetalhesViewModel.Restaurantes[0].Rating Garfos</p>
+    <p class="descrirest">@Model.RestauranteDetalhesViewModel.Restaurantes[0].Descricao</p>
+
+    @for (int i = 0; i < Model.RestauranteDetalhesViewModel.ImagensPath.Count(); i++)
+    {
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img class="imgrestar" src="@Url.Content(Model.RestauranteDetalhesViewModel.ImagensPath[i])" alt="imagem do restaurante" width="250" height="250" style="border-radius:8px" />
+            </div>
+
+            <a style="color:white" class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a style="color:white" class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    }
+
+    <div class=" favoritorest btn">
+        @{
+            if (ViewBag.restaurante == false)
+            {
+                @Html.ActionLink("Adicionar aos Favoritos", "AdicionarFavorito", "Restaurante", new { IdRestaurante = Model.RestauranteDetalhesViewModel.UtilizadoresRestaurantes[0].Username });
+
+            }
+            else if (ViewBag.restaurante == true)
+            {
+                @Html.ActionLink("Remover dos Favoritos", "RemoverFavorito", "Restaurante", new { IdRestaurante = Model.RestauranteDetalhesViewModel.UtilizadoresRestaurantes[0].Username });
+            }
+        }
+    </div>
+</div>
+
+<form asp-action="ListarUtilizadores">
+    <br />
+    <input type="submit" class="btn btn-primary btnbarrameio" asp-controller="Restaurante" asp-action="ApresentarRestaurante" name="button" value="Pratos do Dia" />
+    <input type="submit" class="btn btn-primary btnbarrameio" asp-controller="Restaurante" asp-action="ApresentarRestaurante" name="button" value="Localização & Contactos" />
+    <input type="submit" class="btn btn-primary btnbarrameio" asp-controller="Restaurante" asp-action="ApresentarRestaurante" name="button" value="Reviews" />
+</form>
+
+
+@switch (ViewData["partialViews"].ToString())
+{
+
+    case "PratoDoDia":
+
+        <div class="espaçoimagens">
+            
+            <partial name="/Views/AdicionarPratoDoDium/ListaPratos.cshtml" model=Model.PratoDetalhesViewModel />
+        </div>
+        <br />
+        
+
+        break;
+
+
+
+    case "LocalizacaoInfo":
+
+        <div class="jumbotron">
+            <h3 style="color:limegreen">Localização</h3>
+            <p><b>Morada:</b>@Model.RestauranteDetalhesViewModel.Localizacoes[0].Morada</p>
+            <p><b>Código Postal:</b> @Model.RestauranteDetalhesViewModel.Localizacoes[0].CodigoPostal</p>
+            <p><b>Localidade:</b> @Model.RestauranteDetalhesViewModel.Localizacoes[0].Localidade</p>
+            <p><b>Coordenadas:</b> @Model.RestauranteDetalhesViewModel.Localizacoes[0].GpsLatitude , @Model.RestauranteDetalhesViewModel.Localizacoes[0].GpsLongitude</p>
+
+            <h3 style="color:limegreen">Contactos</h3>
+            <p><b>Telefone:</b> @Model.RestauranteDetalhesViewModel.Restaurantes[0].ContactoTelefone</p>
+            <p><b>Email:</b> @Model.RestauranteDetalhesViewModel.Restaurantes[0].ContactoEmail</p>
+
+
+            <h3 style="color:limegreen">Horário</h3>
+            <p><b>Horário:</b> @Model.RestauranteDetalhesViewModel.Restaurantes[0].HorarioFuncionamento</p>
+            <p><b>Dia de Descanso:</b> @Model.RestauranteDetalhesViewModel.Restaurantes[0].DiaDeDescanso</p>
+
+            <h3 style="color:limegreen">Tipo de Serviço</h3>
+            <p>@Model.RestauranteDetalhesViewModel.Restaurantes[0].TipoDeServico</p>
+        </div>
+
+
+        break;
+    case "Reviews":
+
+
+        @if (ViewData["serCliente"] != null)
+        {
+            @if (ViewData["serCliente"].ToString() == "cliente")
+            {
+                <br />
+                <br />
+                <partial name="/Views/ComentarioRestaurante/InserirComentario.cshtml" model=Model.RestauranteDetalhesViewModel.ComentariosRestaurantes[0] />
+                <br />
+                <br />
+            }
+        }
+
+
+        @if (Model.RestauranteDetalhesViewModel.ComentariosRestaurantes.Count != 0)
+        {
+            <partial name="/Views/ComentarioRestaurante/ListaComentarios.cshtml" model=Model.RestauranteDetalhesViewModel.ComentariosRestaurantes />
+        }
+        else
+        {
+            <p>Este restaurante ainda não tem comentários.</p>
+        }
+        break;
+}
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+    

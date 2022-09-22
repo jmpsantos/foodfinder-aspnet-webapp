@@ -1,0 +1,69 @@
+﻿@model FoodFinder_WebApp.Models.Restaurante
+
+
+@{
+    ViewData["Title"] = "FoodFinder Logon Restaurante";
+}
+
+<link rel="stylesheet" href="~/css/logon.css"/>
+
+<h1 class="titulo">FoodFinder Logon</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Logon" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ContactoEmail" class="control-label separador">Contacto</label>
+                <input type="email" name="contactoEmail" placeholder="Email" asp-for="ContactoEmail" class="form-control" />
+                <span asp-validation-for="ContactoEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="ContactoTelefone" class="control-label"></label>*@
+                <input name="contactoTelefone" placeholder="Telefone" asp-for="ContactoTelefone" class="form-control" />
+                <span asp-validation-for="ContactoTelefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HorarioFuncionamento" class="control-label separador">Outras Informações</label>
+                <input name="horarioFuncionamento" placeholder="Horario Funcionamento" asp-for="HorarioFuncionamento" class="form-control" />
+                <span asp-validation-for="HorarioFuncionamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="DiaDeDescanso" class="control-label"></label>*@
+                <input name="diaDeDescanso" placeholder="Dia De Descanso" asp-for="DiaDeDescanso" class="form-control" />
+                <span asp-validation-for="DiaDeDescanso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tipo de Serviço</label>
+                <select name="tipoServico" class="form-control">
+                    <option value="0">Local</option>
+                    <option value="1">Take-Away</option>
+                    <option value="2">Entrega</option>
+                </select>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Descricao" class="control-label"></label>*@
+                <input name="descricao" type="text" placeholder="Descrição" asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Foto do Restaurante</label>
+                <input name="fotoRestaurante" type="file" class="form-control"/>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirmar" class="btn btn-primary botao_conf" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

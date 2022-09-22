@@ -1,0 +1,108 @@
+﻿@model FoodFinder_WebApp.Models.Restaurante
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "InformacaoPessoalRestaurante";
+
+}
+
+<!--<% Response.Expires = -1
+      Response.AddHeader "Pragma", "no-cache"
+      Response.AddHeader "cache-ctrol", "no-cache" %>-->
+
+<link rel="stylesheet" href="~/css/Restaurante.css" />
+
+<br /><br />
+<div class="boxinfo">
+     <div class="info" >
+    <h3>Informações Pessoais</h3><br />
+    </div>
+    <div class="editarR">
+    <a style="color:green " asp-action="Edit">Editar</a>
+    </div>
+</div>
+<br />
+<div>
+   
+    
+    <dl class="row">
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large" >
+            Email   
+        </dt>
+        <dd class="col-md-10" style="padding:5px">
+            @Html.DisplayFor(model => model.ContactoEmail) 
+        </dd> 
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large">
+            Telefone
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.ContactoTelefone) 
+        </dd>
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large">
+            Horário
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.HorarioFuncionamento)
+        </dd>
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large">
+            Dia de Descanso
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.DiaDeDescanso)
+        </dd>
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large">
+            Tipo de Serviço
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.TipoDeServico)
+        </dd>
+        <dt class="col-sm-2 font-weight-bold " style="font-size:large">
+            Rating
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large">
+            Descrição
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large">
+            Localização
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.Localizacao.CodigoPostal) 
+        </dd>
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large">
+            Morada
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.Localizacao.Morada)
+        </dd>
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large">
+            Localidade
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.Localizacao.Localidade) 
+        </dd>
+        <dt class="col-sm-2 font-weight-bold" style="font-size:large">
+            Coordenadas
+        </dt>
+        <dd class="col-sm-10" style="padding:5px">
+            @Html.DisplayFor(model => model.Localizacao.GpsLatitude)  ,   @Html.DisplayFor(model => model.Localizacao.GpsLongitude)
+        </dd>
+      
+
+    </dl>
+</div>
+
+@*@Url.Content("/RestaurantImages/" + Context.Session.GetString("user") + "_000.jpg"*@
+<img class="imgrest" src="@Url.Content("/images/restaurantes/" + Context.Session.GetString("user") + "_000.jpg?" + DateTime.Now.ToString("HHmmsskkk")))" alt="imagem do restaurante" width="250" height="250" style="border-radius:8px" />
+<br /> <br /> <br />
+
+
+
+<br />
+
+
+

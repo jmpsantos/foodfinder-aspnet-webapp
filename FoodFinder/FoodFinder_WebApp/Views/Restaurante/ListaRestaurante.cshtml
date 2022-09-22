@@ -1,0 +1,33 @@
+﻿@model FoodFinder_WebApp.ViewModels.RestauranteDetalhesViewModel;
+
+@{
+    ViewData["Title"] = "ListaRestaurantesFavoritos";
+}
+
+<link rel="stylesheet" href="~/css/Restaurante.css" />
+<link rel="stylesheet" href="~/css/Layout.css"~/>
+
+@if (Model != null)
+{
+    @for (int i = 0; i < Model.Restaurantes.Count(); i++)
+    {
+        <div class="grid-container">
+        <a asp-action="ApresentarRestaurante" asp-controller="Restaurante" asp-route-id="@Model.UtilizadoresRestaurantes[i].Username">
+            <div class="grid-item">
+                
+                <img class="imgespaço" src="@Url.Content(Model.ImagensPath[i])" alt="imagem do restaurante" width="200" height="200" style="border-radius:8px"/>
+                
+                    <h5 style="font-weight:bold">@Model.UtilizadoresRestaurantes[i].Nome</h5>
+                    <p style="color:limegreen">@Model.Localizacoes[i].Localidade</p>
+                    <p >@Model.Restaurantes[i].Rating</p>
+
+               
+            </div>
+        </a>
+            </div>
+    }
+}
+else
+{
+    <p>A lista encontra-se vazia.</p>
+}
