@@ -1,0 +1,52 @@
+﻿@model FoodFinder_WebApp.Models.Localizacao
+
+@{
+    ViewData["Title"] = "FoodFinder Logon Localizacao";
+}
+
+<link rel="stylesheet" href="~/css/logon.css"/>
+
+<h1 class="titulo">FoodFinder Logon</h1>
+
+@*<h4 class="sub2">Localizacao</h4>*@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Logon">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Morada" class="control-label separador">Localização</label>
+                <input name="morada" placeholder="Morada" asp-for="Morada" class="form-control" />
+                <span asp-validation-for="Morada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="CodigoPostal" class="control-label">Código-postal</label>*@
+                <input name="codigoPostal" placeholder="Codigo Postal" asp-for="CodigoPostal" class="form-control" />
+                <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Localidade" class="control-label">Localidade</label>*@
+                <input name="localidade" placeholder="Localidade" asp-for="Localidade" class="form-control" />
+                <span asp-validation-for="Localidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="GpsLatitude" class="control-label">Latitude</label>*@
+                <input name="latitude" placeholder="Latitude" asp-for="GpsLatitude" class="form-control" />
+                <span asp-validation-for="GpsLatitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="GpsLongitude" class="control-label">Longitude</label>*@
+                <input name="longitude" placeholder="Longitude" asp-for="GpsLongitude" class="form-control" />
+                <span asp-validation-for="GpsLongitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirmar" class="btn btn-primary botao_conf" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
