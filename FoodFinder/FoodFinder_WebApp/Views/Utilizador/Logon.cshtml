@@ -1,0 +1,64 @@
+﻿@model FoodFinder_WebApp.Models.Utilizador
+
+@{
+    ViewData["Title"] = "FoodFinder Logon";
+}
+
+<link rel="stylesheet" href="~/css/PaginasSecundariascss.css" />
+
+
+    <div class="FFinicial">
+        <h4>FoodFinder logon</h4>
+    </div>
+    <div class="Registo">
+       <div class="row">
+        <div class="col-md-4">
+        <form asp-action="Logon">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" >
+                <label class="control-label"> Sou? </label><br />
+                <input type="radio" id="cliente" name="tipoUtilizador" value="0">
+                <label for="Cliente"> Cliente</label><br>
+                <input type="radio" id="restaurante" name="tipoUtilizador" value="1">
+                <label for="Restaurante"> Restaurante</label><br>
+                <!--<a class="btn" asp-area="" asp-controller="Restaurante" asp-action="Logon" </a>-->
+
+                <!--<label class="control-label">Tipo</label>
+    <select name="tipoUtilizador" class="form-control">
+        <option value="0">Cliente</option>
+        <option value="1">Restaurante</option>
+    </select>-->
+            </div>
+            <div class="form-group" align="center">
+                <input name="nome" asp-for="Nome" class="form-control" placeholder="Nome "/>
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group" align="center">
+                <input type="email" name="email" asp-for="Email" class="form-control" placeholder="Endereço de Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group" align="center">
+                <!--<label asp-for="Username" class="control-label"></label>-->
+                <input name="username" asp-for="Username" class="form-control" placeholder="Username"/>
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group" align="center">
+                <input type="password" name="password" asp-for="Password" class="form-control" placeholder="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group" align="center">
+                <input type="password" name="confirmarPassword" class="form-control"placeholder="Confirmar Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group" align="center">
+                <input value="Confirmar" type="submit" class="btn2 btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+    </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

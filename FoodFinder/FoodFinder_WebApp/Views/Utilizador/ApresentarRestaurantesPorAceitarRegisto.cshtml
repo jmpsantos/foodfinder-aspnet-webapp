@@ -1,0 +1,62 @@
+﻿@model IEnumerable<FoodFinder_WebApp.Models.Utilizador>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "ApresentarRestaurantesPorAceitarRegisto";
+}
+
+<br/>
+<br/>
+
+<h3>Restaurantes com Pedidos Por Aceitar</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <a asp-action="InformacaoPessoalRestaurante" asp-controller="Restaurante" asp-route-id="@item.Username">Consultar Informação</a> |
+                        <a asp-action="ConfirmarRegisto" asp-route-id="@item.Username">Aceitar Registo</a> |
+                        <a asp-action="NegarRegisto" asp-route-id="@item.Username">Negar Registo</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>Lista Vazia.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<img src="@Url.Content("/RestaurantImages/" + Context.Session.GetString("user") + "_000.jpg?" + DateTime.Now.ToString("HHmmsskkk")))" alt="imagem do restaurante" width="250" height="250" />

@@ -1,0 +1,48 @@
+﻿@model FoodFinder_WebApp.Models.Utilizador
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/PaginasSecundariascss.css" />
+
+
+<div class="FFinicialLogin">
+<h4 >FoodFinder Login</h4>
+</div>
+
+<div class="Login">
+    <div class="row">
+        <div class="col-md-4">
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group" align="center">
+                        <input asp-for="Username" class="form-control" placeholder="Username / Endereço Email" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group" align="center">
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group" align="center">
+                        <input type="submit" value="Confirmar" class="btn2 btn-primary" />
+                    </div>
+                    <br />
+                    <div class="form-group" align="center">
+                        <a class="registo-login " asp-area="" asp-controller="Utilizador" asp-action="Logon">Não tem conta? Registe-se aqui!</a>
+
+                        <!--<a class="nav-link text-dark font-weight-bold " style="background-color:lightgray" style="color:green" asp-area="" asp-controller="Home" asp-action="Index">Não tem conta? Registe-se aqui!</a>-->
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

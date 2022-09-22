@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FoodFinder_WebApp.Models.Utilizador>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>HomePage</h1>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @Context.Session.GetString("user"),,,,,,,,,@Context.Session.GetString("tipo")  </h1>
+
+
+</div>
+

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<FoodFinder_WebApp.Models.Utilizador>
+
+@{
+    ViewData["Title"] = "ListarUtilizadores";
+}
+
+<link rel="stylesheet" href="~/css/PaginasSecundariascss.css" />
+<link rel="stylesheet" href="~/css/Admincss.css" />
+
+<h3> <br /> <br />Utilizadores</h3>
+
+<form asp-controller="Utilizador" asp-action="ListarUtilizadores">
+    <p class="pesquisar">
+        <input type="text" name="textoPesquisa" style="width:76%" placeholder="Procure por Utilizadores" />
+        <input type="submit" class="btn2 btn-primary" style="background-color:#78BC71; border:none" value="Pesquisar"/>
+    </p>
+</form>
+
+
+
+<form asp-action="ListarUtilizadores" class="btn-group d-flex" >
+    <input type="submit" class="btnadG btn-primary" asp-action="ListarUtilizadores" name="button" value="todosResultados" placeholder="Todos os Resultados"/> 
+    <input type="submit" class="btnadG btn-primary" asp-action="ListarUtilizadores" name="button" value="restaurantes" placeholder="Restaurantes"/>
+    <input type="submit" class="btnadG btn-primary" asp-action="ListarUtilizadores" name="button" value="clientes" placeholder="Clientes"/>
+    <input type="submit" class="btnadG btn-primary" asp-action="ListarUtilizadores" name="button" value="administradores" placeholder="Administradores"/>
+</form>
+
+<br/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistoConfirmado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bloqueado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @if (item.RegistoConfirmado == true)
+                        {
+                            <p>registado</p>
+                        }
+                        else
+                        {
+                            <p>não registado</p>
+                        }
+                    </td>
+                    <td>
+                        @if(item.BloqueadoId != null)
+                        {
+                            <p>Bloqueado</p>
+                        }
+                        else
+                        {
+                            <p>Não Bloqueado</p>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="InformacaoPessoalUtilizador" asp-controller="Utilizador" asp-route-id="@item.Username">Consultar Informação</a>
+
+                        @if (item.BloqueadoId == null)
+                        {
+                           <p><a asp-action="Bloquear" asp-controller="Bloqueado" asp-route-utilizadorUsername="@item.Username">Bloquear Utilizador</a></p>
+                        }
+                        else
+                        {
+                            <p><a asp-action="Desbloquear" asp-controller="Bloqueado" asp-route-utilizadorUsername="@item.Username">Desbloquear Utilizador</a></p>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <th>
+                    Não foram encontrados dados.
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
